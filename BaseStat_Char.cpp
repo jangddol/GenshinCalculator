@@ -2,46 +2,50 @@
 #include <cmath>
 #include <vector>
 #include <sstream>
+#include <cassert>
 
 using namespace std;
 
 
-double LvMultiplier_BaseStat_5star(int Level){
+double LvMultiplier_BaseStat_5star(int level){
 	double SLOPE = 0.086960472;
 	double INTERCEPT = 0.856331835;
-	double Answer;
-	double MULTIPLIER_LEVEL1_STANDARD = SLOPE * Level + INTERCEPT;
-	double MULTIPLIER_LEVEL90 = SLOPE * 90 + INTERCEPT;
-	Answer = MULTIPLIER_LEVEL1_STANDARD / MULTIPLIER_LEVEL90;
-	return Answer;
+	double answer;
+	double multiplierLevel1Standard = SLOPE * level + INTERCEPT;
+	double multiplierLevel90 = SLOPE * 90 + INTERCEPT;
+	answer = multiplierLevel1Standard / multiplierLevel90;
+	return answer;
 }
 
 
-double LvMultiplier_BaseStat_4star(int Level){	
+double LvMultiplier_BaseStat_4star(int level){	
 	double SLOPE = 0.08256877;
 	double INTERCEPT = 0.917443196;
-	double Answer;
-	double MULTIPLIER_LEVEL1_STANDARD = SLOPE * Level + INTERCEPT;
-	double MULTIPLIER_LEVEL90 = SLOPE * 90 + INTERCEPT;
-	Answer = MULTIPLIER_LEVEL1_STANDARD / MULTIPLIER_LEVEL90;
-	return Answer;
+	double answer;
+	double multiplierLevel1Standard = SLOPE * level + INTERCEPT;
+	double multiplierLevel90 = SLOPE * 90 + INTERCEPT;
+	answer = multiplierLevel1Standard / multiplierLevel90;
+	return answer;
 }
 
 
-double LvMultiplier_BaseStat(int Level, int Star){
-	double Answer;
-	if (Star == 4){
-		Answer = LvMultiplier_BaseStat_4star(Level);
+double LvMultiplier_BaseStat(int level, int star){
+	double answer;
+	if (star == 4){
+		answer = LvMultiplier_BaseStat_4star(level);
 	}
-	else if (Star == 5){
-		Answer = LvMultiplier_BaseStat_5star(Level);
+	else if (star == 5){
+		answer = LvMultiplier_BaseStat_5star(level);
 	}
-	return Answer;
+	else{
+		assert(star == 4 || star == 5);
+	}
+	return answer;
 }
 
 
-double BaseStat_foreach_Level_without_Ascension(int BaseStat90_without_Ascension, int Level, int Star){
-	return LvMultiplier_BaseStat(Level, Star) * BaseStat90_without_Ascension;
+double BaseStat_foreach_Level_without_Ascension(int BaseStat90_without_Ascension, int level, int star){
+	return LvMultiplier_BaseStat(level, star) * BaseStat90_without_Ascension;
 }
 
 
@@ -63,10 +67,10 @@ double BaseStat_AscensionValue(int Ascension_Phase, double Full_Ascension_Stat){
 		Ascension_Section = 155./182.;
 	}
 	else if (Ascension_Phase == 6){
-		Ascension_Section == 1;
+		Ascension_Section = 1;
 	}
 	else{
-		Ascension_Section == 0;
+		Ascension_Section = 0;
 	}
 	double Answer = Full_Ascension_Stat * Ascension_Section;
 	return Answer;
