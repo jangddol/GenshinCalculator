@@ -9,7 +9,7 @@
 using namespace std;
 
 
-class Stat{
+struct Stat{
 	public:
 		double Critical_Rate_;
 		double Critical_Damage_;
@@ -35,10 +35,19 @@ class Stat{
 		double Q_plusDMG_;
 		int CharLevel_;
 		double Resist_Cut_;
+		double Fire_Bonus;
+		double Ice_Bonus;
+		double Geo_Bonus;
+		double Wind_Bonus;
+		double Water_Bonus;
+		double Electro_Bonus;
+		double Grass_Bonus;
+		double Heal_Bonus;
+		double Heal_Flat_;
 };
 
 
-class Character{
+class ICharacter{
 	private:
 		int Star_;
 		string Elemant_;
@@ -47,37 +56,19 @@ class Character{
 		double BaseHP_;
 	protected:
 		string CharLevel_ = "90";
-		double BaseATK90_ = 0;
-		double BaseDEF90_ = 0;
-		double BaseHP90_ = 0;
-		double AscensionATK90_ = 0;
-		double AscensionDEF90_ = 0;
-		double AscensionHP90_ = 0;
-		double SpecFunction(Stat stat);
+		Stat BaseStat90;
+		Stat AscensionStat90;
+		Stat BaseStat;
+		double returnSpecFunction(Stat stat);
 	public:
-		Character();
+		ICharacter();
 };
 
 
-Character::Character(){
-	BaseATK_ = BaseStat_Char::BaseStat_foreach_Level(BaseATK90_, AscensionATK90_, CharLevel_, Star_);
-	BaseDEF_ = BaseStat_Char::BaseStat_foreach_Level(BaseDEF90_, AscensionDEF90_, CharLevel_, Star_);
-	BaseHP_ = BaseStat_Char::BaseStat_foreach_Level(BaseHP90_, AscensionHP90_, CharLevel_, Star_);
+ICharacter::ICharacter(){
 }
 
 
-class Klee : public Character{
-	private:
-		double BaseATK;
-		double BaseDEF;
-		double BaseHP;
-	protected:
-		double CharLevel;
-		double BaseATK90;
-		double BAseHP90;
-		double AscensionATK90;
-		double AscentionDEF90;
-		double AscensionHP90;
-		double SpecFunction(Stat stat);
+class Klee : public ICharacter{
 };
 
