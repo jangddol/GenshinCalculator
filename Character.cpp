@@ -10,7 +10,8 @@
 using namespace std;
 
 
-class Stat {
+class Stat
+{
 public:
 	double Critical_Rate;
 	double Critical_Damage;
@@ -45,7 +46,8 @@ public:
 };
 
 
-class Character {
+class Character
+{
 private:
 	int mStar;
 	string mElemant;
@@ -59,11 +61,13 @@ public:
 };
 
 
-Character::Character() {
+Character::Character()
+{
 }
 
 
-double Character::SpecFunction(Stat stat, int MobLevel) {
+double Character::SpecFunction(Stat stat, int MobLevel)
+{
 	double totalATK;
 	double totalATKPer;
 	double totalplusATKFlat;

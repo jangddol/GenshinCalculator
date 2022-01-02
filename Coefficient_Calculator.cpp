@@ -5,7 +5,8 @@
 using namespace std;
 
 
-double Coef_Resist(double Resist){
+double Coef_Resist(const double Resist)
+{
 	double Answer;
 
 	if (Resist > 75){
@@ -21,7 +22,8 @@ double Coef_Resist(double Resist){
 }
 
 
-double Coef_Amping(double EleMast, double AmpBonus){
+double Coef_Amping(const double EleMast, const double AmpBonus)
+{
 	double Answer;
 	double AmpMultiplier = 2.78 * EleMast / (EleMast + 1400);
 	Answer = 1 + AmpMultiplier + AmpBonus / 100;
@@ -29,7 +31,8 @@ double Coef_Amping(double EleMast, double AmpBonus){
 }
 
 
-double Coef_Level_Tranfor(int Level){
+double Coef_Level_Transfor(const int Level)
+{
 	assert(Level <= 90);
 
 	double Answer;
@@ -43,7 +46,8 @@ double Coef_Level_Tranfor(int Level){
 }
 
 
-double Coef_EleMast_Transfor(double EleMast, double TransforBonus){
+double Coef_EleMast_Transfor(const double EleMast, const double TransforBonus)
+{
 	double Answer;
 	double TransforMultiplier = 16 * EleMast / (EleMast + 2000);
 	Answer = 1 + TransforMultiplier + TransforBonus / 100;
@@ -51,7 +55,8 @@ double Coef_EleMast_Transfor(double EleMast, double TransforBonus){
 }
 
 
-double Coef_Def(double Defcut, int CharLevel, int MobLevel){
+double Coef_Def(const double Defcut, const int CharLevel, const int MobLevel)
+{
 	assert(CharLevel > 0 && CharLevel <= 90);
 	assert(MobLevel > 0 && MobLevel <= 100);
 	
@@ -61,7 +66,8 @@ double Coef_Def(double Defcut, int CharLevel, int MobLevel){
 }
 
 
-double Coef_Level(int CharLevel, int MobLevel){
+double Coef_Level(const int CharLevel, const int MobLevel)
+{
 	assert(CharLevel > 0 && CharLevel <= 90);
 	assert(MobLevel > 0 && MobLevel <= 100);
 

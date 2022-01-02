@@ -6,17 +6,20 @@
 
 using namespace std;
 
-class ITalentCoefficient {
+class ITalentCoefficient
+{
 public:
 	array<double, 15> mTalentCoefficient;
 };
 
-class Physical_1_TalentCoefficient : public ITalentCoefficient {
+class Physical_1_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Physical_1_TalentCoefficient();
 };
 
-Physical_1_TalentCoefficient::Physical_1_TalentCoefficient() {
+Physical_1_TalentCoefficient::Physical_1_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.081,
@@ -36,12 +39,14 @@ Physical_1_TalentCoefficient::Physical_1_TalentCoefficient() {
 	};
 }
 
-class Physical_1_Alternative_TalentCoefficient : public ITalentCoefficient {
+class Physical_1_Alternative_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Physical_1_Alternative_TalentCoefficient();
 };
 
-Physical_1_Alternative_TalentCoefficient::Physical_1_Alternative_TalentCoefficient(){
+Physical_1_Alternative_TalentCoefficient::Physical_1_Alternative_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.081,
@@ -61,12 +66,14 @@ Physical_1_Alternative_TalentCoefficient::Physical_1_Alternative_TalentCoefficie
 	};
 };
 
-class Physical_2_TalentCoefficient : public ITalentCoefficient {
+class Physical_2_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Physical_2_TalentCoefficient();
 };
 
-Physical_2_TalentCoefficient::Physical_2_TalentCoefficient(){
+Physical_2_TalentCoefficient::Physical_2_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.068,
@@ -86,12 +93,14 @@ Physical_2_TalentCoefficient::Physical_2_TalentCoefficient(){
 	};
 };
 
-class Elemental_1_TalentCoefficient : public ITalentCoefficient {
+class Elemental_1_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Elemental_1_TalentCoefficient();
 };
 
-Elemental_1_TalentCoefficient::Elemental_1_TalentCoefficient(){
+Elemental_1_TalentCoefficient::Elemental_1_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.075,
@@ -111,12 +120,14 @@ Elemental_1_TalentCoefficient::Elemental_1_TalentCoefficient(){
 	};
 };
 
-class Elemental_1_Alternative_TalentCoefficient : public ITalentCoefficient {
+class Elemental_1_Alternative_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Elemental_1_Alternative_TalentCoefficient();
 };
 
-Elemental_1_Alternative_TalentCoefficient::Elemental_1_Alternative_TalentCoefficient(){
+Elemental_1_Alternative_TalentCoefficient::Elemental_1_Alternative_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.075,
@@ -136,12 +147,14 @@ Elemental_1_Alternative_TalentCoefficient::Elemental_1_Alternative_TalentCoeffic
 	};
 };
 
-class Elemental_2_TalentCoefficient : public ITalentCoefficient {
+class Elemental_2_TalentCoefficient : public ITalentCoefficient
+{
 public:
 	Elemental_2_TalentCoefficient();
 };
 
-Elemental_2_TalentCoefficient::Elemental_2_TalentCoefficient(){
+Elemental_2_TalentCoefficient::Elemental_2_TalentCoefficient()
+{
 	mTalentCoefficient = {
 		1,
 		1.06,
@@ -161,7 +174,8 @@ Elemental_2_TalentCoefficient::Elemental_2_TalentCoefficient(){
 	};
 };
 
-double getTalentCoefficient(int talentLevel, string talenttype) {
+double getTalentCoefficient(int talentLevel, string talenttype)
+{
 	ITalentCoefficient tempTalentCoefficient;
 	if (talenttype == "Physical1") {
 		tempTalentCoefficient = Physical_1_TalentCoefficient();

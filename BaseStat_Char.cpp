@@ -6,7 +6,8 @@
 using namespace std;
 
 
-double LvMultiplier_BaseStat_5star(int Level) {
+double LvMultiplier_BaseStat_5star(int Level)
+{
 	double SLOPE = 0.086960472;
 	double INTERCEPT = 0.856331835;
 	double Answer;
@@ -17,7 +18,8 @@ double LvMultiplier_BaseStat_5star(int Level) {
 }
 
 
-double LvMultiplier_BaseStat_4star(int Level) {
+double LvMultiplier_BaseStat_4star(int Level)
+{
 	double SLOPE = 0.08256877;
 	double INTERCEPT = 0.917443196;
 	double Answer;
@@ -28,7 +30,8 @@ double LvMultiplier_BaseStat_4star(int Level) {
 }
 
 
-double LvMultiplier_BaseStat(int Level, int Star) {
+double LvMultiplier_BaseStat(int Level, int Star)
+{
 	double Answer;
 	if (Star == 4) {
 		Answer = LvMultiplier_BaseStat_4star(Level);
@@ -40,12 +43,14 @@ double LvMultiplier_BaseStat(int Level, int Star) {
 }
 
 
-double BaseStat_foreach_Level_without_Ascension(int BaseStat90_without_Ascension, int Level, int Star) {
+double BaseStat_foreach_Level_without_Ascension(int BaseStat90_without_Ascension, int Level, int Star)
+{
 	return LvMultiplier_BaseStat(Level, Star) * BaseStat90_without_Ascension;
 }
 
 
-double BaseStat_AscensionValue(int Ascension_Phase, double Full_Ascension_Stat) {
+double BaseStat_AscensionValue(int Ascension_Phase, double Full_Ascension_Stat)
+{
 	double Ascension_Section;
 	if (Ascension_Phase == 1) {
 		Ascension_Section = 38. / 182.;
@@ -73,7 +78,8 @@ double BaseStat_AscensionValue(int Ascension_Phase, double Full_Ascension_Stat) 
 }
 
 
-int HowMuchAscension(string Level_String) {
+int HowMuchAscension(string Level_String)
+{
 	int Level;
 	int Ascension_Phase;
 	char Last_Char;
@@ -110,7 +116,8 @@ int HowMuchAscension(string Level_String) {
 }
 
 
-int BaseStat_foreach_Level(double BaseStat90, double BaseStat90_Ascension, string Level_String, int Star) {
+int BaseStat_foreach_Level(double BaseStat90, double BaseStat90_Ascension, string Level_String, int Star)
+{
 	double BaseStat90_without_Ascension;
 	BaseStat90_without_Ascension = BaseStat90 - BaseStat90_Ascension;
 
@@ -130,15 +137,4 @@ int BaseStat_foreach_Level(double BaseStat90, double BaseStat90_Ascension, strin
 	double BaseStat;
 	BaseStat = BaseStat_without_Ascension + BaseStat_Ascension;
 	return BaseStat;
-}
-
-
-int main() {
-	string str1;
-	cout << "write your level :" << endl;
-	cin >> str1;
-	cout << "The size of str1 is " << str1.size() << endl;
-	int Ascension_Phase = HowMuchAscension(str1);
-	cout << "The Ascension_Phase is " << Ascension_Phase << endl;
-	return 0;
 }

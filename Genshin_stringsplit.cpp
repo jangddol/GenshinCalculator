@@ -7,7 +7,8 @@ using namespace std;
 
 vector<string> split(string str, char delimiter);
 
-vector<string> split(string input, char delimiter){
+vector<string> split(string input, char delimiter)
+{
 	vector<string> Answer;
 	stringstream ss(input);
 	string temp;
